@@ -5,3 +5,6 @@ npm install --save-dev typescript
 
 npx tsc --init
 npx tsc # compile typescript
+npx tsc --watch
+
+# Note
