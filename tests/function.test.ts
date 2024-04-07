@@ -65,5 +65,19 @@ describe('Function', () => {
         expect(callMe('ricid')).toBe('RICID')
         expect(callMe(10)).toBe(100)
     })
-})
 
+    it('shoul support function as parameter', () => {
+        function sayHello(name: string, filter: (name: string) => string): string {
+            return `Hello ${filter(name)}`
+        }
+
+        function toUpper(name: string): string {
+            return name.toUpperCase()
+        }
+
+        expect(sayHello('Ricid', toUpper)).toBe('Hello RICID')
+
+        // Using anonimous function
+        expect(sayHello('ricid', (name: string): string => name.toUpperCase())).toBe('Hello RICID')
+    })
+})
